@@ -20,22 +20,6 @@ def hack(_, msg):
 
     msg.edit(f"Взлом объекта '{name}' в процессе... {input_sym}% \nОбъект '{name}' взломан!")
 
-@app.on_message(filters.command("nohack", prefixes="/") & filters.me) # комманда
-def nohack(_, msg):
-    name = msg.text.split("/nohack ", maxsplit=1)[1] # достаём слово после /nohack
-    input_sym = 0
-
-    while (input_sym < 100):
-        try:
-            msg.edit(f"Взлом объекта '{name}' в процессе... {input_sym}%")
-            input_sym += 1
-            sleep(0.2)
-
-        except:
-            pass
-
-    msg.edit(f"Взлом объекта '{name}' в процессе... {input_sym}% \nОбъект '{name}' не был взломан!")
-
 @app.on_message(filters.command("inp", prefixes="/") & filters.me) # комманда
 def redact(_, msg):
     realtext = msg.text.split("/inp ", maxsplit=1)[1] # достаём слово после /input
